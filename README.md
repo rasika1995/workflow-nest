@@ -71,16 +71,6 @@ yarn start
 
 This will start the NestJS server on the default port (3000).
 
-### Running Workers
-
-To run the Temporal workers, create a separate terminal window and execute the following command:
-
-```bash
-yarn run start:worker
-```
-
-This will start the worker that listens to the task queues defined in your workflows.
-
 ## Workflows
 
 This project includes two cron workflows:
