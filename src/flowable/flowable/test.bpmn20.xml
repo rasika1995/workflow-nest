@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:flowable="http://flowable.org/bpmn"
+             targetNamespace="http://flowable.org/bpmn/examples">
+
+    <process id="helloWorldProcess" name="Hello World Process" isExecutable="true">
+        <startEvent id="startEvent" flowable:formFieldValidation="true" />
+        
+        <intermediateCatchEvent id="timerEvent">
+            <timerEventDefinition>
+                <timeDuration>PT5M</timeDuration>
+            </timerEventDefinition>
+        </intermediateCatchEvent>
+
+        <serviceTask id="printHelloWorldTask" name="Print Hello World Task" flowable:type="http">
+            <extensionElements>
+                <flowable:field name="requestMethod">
+                    <flowable:string><![CDATA[POST]]></flowable:string>
+                </flowable:field>
+                <flowable:field name="requestUrl">
+                    <flowable:string><![CDATA[http://localhost:3000/flowable/trigger-hello]]></flowable:string>
+                </flowable:field>
+            </extensionElements>
+        </serviceTask>
+        
+        <endEvent id="endEvent" />
+        <sequenceFlow id="flow1" sourceRef="timerEvent" targetRef="printHelloWorldTask" />
+        <sequenceFlow id="flow2" sourceRef="printHelloWorldTask" targetRef="endEvent" />
+    </process>
+
+</definitions>
