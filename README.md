@@ -95,7 +95,3 @@ You can start these workflows via HTTP requests to the following endpoints:
 ## Future Integrations
 
 This project is intended for research and development on various workflow tools, including Temporal, Flowable, and Camunda. As these integrations progress, the project will evolve to demonstrate additional capabilities.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
